@@ -5,7 +5,6 @@
 var express     = require('express');
 var app         = express();
 var bodyParser  = require('body-parser');
-var config      = require('./config');
 var morgan      = require('morgan');
 var routes      = require('./routes');
 var fs          = require('fs');
