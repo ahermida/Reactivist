@@ -1,0 +1,27 @@
+{
+  "name": "reactivist",
+  "version": "1.0.0",
+  "description": "An app to help people group together",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahermida/Reactivist.git"
+  },
+  "keywords": [
+    "activism"
+  ],
+  "author": "Obasi Shaw, Albert Hermida, David Siah, Kent Wu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ahermida/Reactivist/issues"
+  },
+  "homepage": "https://github.com/ahermida/Reactivist",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1"
+  }
+}
