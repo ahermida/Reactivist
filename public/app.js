@@ -227,7 +227,7 @@ module.exports = React.createClass({
   render: function () {
     return React.createElement(
       'nav',
-      { className: 'navbar navbar-default' },
+      { id: 'ReactivistNavbar', className: 'navbar navbar-default' },
       React.createElement(
         'div',
         { className: 'container-fluid' },
@@ -235,177 +235,32 @@ module.exports = React.createClass({
           'div',
           { className: 'navbar-header' },
           React.createElement(
-            'button',
-            { type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1', 'aria-expanded': 'false' },
+            'a',
+            { className: 'navbar-brand', id: 'navlogo', href: '#' },
             React.createElement(
               'span',
-              { className: 'sr-only' },
-              'Toggle navigation'
+              { id: 'ra-sign-in-r' },
+              're'
             ),
-            React.createElement('span', { className: 'icon-bar' }),
-            React.createElement('span', { className: 'icon-bar' }),
-            React.createElement('span', { className: 'icon-bar' })
-          ),
-          React.createElement(
-            'a',
-            { className: 'navbar-brand', href: '#' },
-            'Brand'
+            React.createElement(
+              'span',
+              { id: 'ra-sign-in-right' },
+              'activist'
+            )
           )
         ),
         React.createElement(
           'div',
-          { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
+          { className: 'navbar-form navbar-right', role: 'search' },
           React.createElement(
-            'ul',
-            { className: 'nav navbar-nav' },
-            React.createElement(
-              'li',
-              { className: 'active' },
-              React.createElement(
-                'a',
-                { href: '#' },
-                'Link ',
-                React.createElement(
-                  'span',
-                  { className: 'sr-only' },
-                  '(current)'
-                )
-              )
-            ),
-            React.createElement(
-              'li',
-              null,
-              React.createElement(
-                'a',
-                { href: '#' },
-                'Link'
-              )
-            ),
-            React.createElement(
-              'li',
-              { className: 'dropdown' },
-              React.createElement(
-                'a',
-                { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
-                'Dropdown ',
-                React.createElement('span', { className: 'caret' })
-              ),
-              React.createElement(
-                'ul',
-                { className: 'dropdown-menu' },
-                React.createElement(
-                  'li',
-                  null,
-                  React.createElement(
-                    'a',
-                    { href: '#' },
-                    'Action'
-                  )
-                ),
-                React.createElement(
-                  'li',
-                  null,
-                  React.createElement(
-                    'a',
-                    { href: '#' },
-                    'Another action'
-                  )
-                ),
-                React.createElement(
-                  'li',
-                  null,
-                  React.createElement(
-                    'a',
-                    { href: '#' },
-                    'Something else here'
-                  )
-                ),
-                React.createElement('li', { role: 'separator', className: 'divider' }),
-                React.createElement(
-                  'li',
-                  null,
-                  React.createElement(
-                    'a',
-                    { href: '#' },
-                    'Separated link'
-                  )
-                ),
-                React.createElement('li', { role: 'separator', className: 'divider' }),
-                React.createElement(
-                  'li',
-                  null,
-                  React.createElement(
-                    'a',
-                    { href: '#' },
-                    'One more separated link'
-                  )
-                )
-              )
-            )
+            'div',
+            { className: 'form-group' },
+            React.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Filter Topics' })
           ),
           React.createElement(
-            'ul',
-            { className: 'nav navbar-nav navbar-right' },
-            React.createElement(
-              'li',
-              null,
-              React.createElement(
-                'a',
-                { href: '#' },
-                'Link'
-              )
-            ),
-            React.createElement(
-              'li',
-              { className: 'dropdown' },
-              React.createElement(
-                'a',
-                { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
-                'Dropdown ',
-                React.createElement('span', { className: 'caret' })
-              ),
-              React.createElement(
-                'ul',
-                { className: 'dropdown-menu' },
-                React.createElement(
-                  'li',
-                  null,
-                  React.createElement(
-                    'a',
-                    { href: '#' },
-                    'Action'
-                  )
-                ),
-                React.createElement(
-                  'li',
-                  null,
-                  React.createElement(
-                    'a',
-                    { href: '#' },
-                    'Another action'
-                  )
-                ),
-                React.createElement(
-                  'li',
-                  null,
-                  React.createElement(
-                    'a',
-                    { href: '#' },
-                    'Something else here'
-                  )
-                ),
-                React.createElement('li', { role: 'separator', className: 'divider' }),
-                React.createElement(
-                  'li',
-                  null,
-                  React.createElement(
-                    'a',
-                    { href: '#' },
-                    'Separated link'
-                  )
-                )
-              )
-            )
+            'button',
+            { className: 'btn btn-default' },
+            'Submit'
           )
         )
       )

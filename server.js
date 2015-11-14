@@ -43,4 +43,4 @@ app.get('*', function(req, res) {
 
 /** Startup Server on config.port */
 app.listen(process.env.PORT || 8080);
-console.log('App running on http://localhost:' + process.env.PORT);
+console.log('App running on http://localhost:' + (process.env.PORT || 8080));
