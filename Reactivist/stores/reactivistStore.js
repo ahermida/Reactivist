@@ -7,6 +7,28 @@ var EventEmitter      = require('events').EventEmitter;
 var assign            = require('object-assign');
 var CHANGE_EVENT      = 'change';
 var _data             = {};
+    _data.topics      = [
+                        {
+                          imgPath:'img/Election2016.jpg',
+                          description: 'The 2016 Elections'
+                        },
+                        {
+                          imgPath: 'img/Poverty.jpg',
+                          description: 'Poverty'
+                        },
+                        {
+                          imgPath: 'img/CleanEnergy.jpg',
+                          description: 'Clean Energy'
+                        },
+                        {
+                          imgPath: 'img/Privacy.jpg',
+                          description: 'Privacy'
+                        },
+                        {
+                          imgPath: 'img/SustainableDevelopment.jpg',
+                          description: 'Sustainable Development'
+                        }
+                       ];
 
 
 /**

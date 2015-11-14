@@ -56,8 +56,27 @@ body {
   width: 100%;
 }
 #ReactivistMain {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
+}
+#TopicImages {
+  background: white;
+  border: 1px solid #ececec;
+  border-radius: 5px;
+  justify-content: space-between;
+  margin: 10px;
+  display: flex;
+  flex-flow: row wrap;
+}
+.TopicItem-description {
+  margin: auto;
+}
+.TopicImage {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  background-color: whitesmoke;
+  padding: 5px;
+  border-radius: 5px;
 }
 #Footer {
   padding: 5px;
