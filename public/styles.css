@@ -11,8 +11,28 @@ body {
   display: flex;
   flex-flow: column;
   min-height: 100%;
+}
+#background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
   background-image: url("city.jpg");
-  background-blend-mode: luminosity;
+  background-size:cover;
+  height: 100%;
+  width: 100%;
+  -webkit-filter: blur(2.5px);
+  -moz-filter: blur(2.5px);
+  -o-filter: blur(2.5px);
+  -ms-filter: blur(2.5px);
+  filter: blur(2.5px);
+}
+#content {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  position: relative;
 }
 #Reactivist {
   width: 100%;
