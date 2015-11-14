@@ -7,7 +7,7 @@ var app         = express();
 var bodyParser  = require('body-parser');
 var config      = require('./config');
 var morgan      = require('morgan');
-var routes      = require('./routes')(express);
+var routes      = require('./routes');
 var fs          = require('fs');
 
 /** Set Headers */
@@ -33,7 +33,6 @@ app.use(morgan('dev'));
 
 /** Import Routes */
 app.use('/api', routes);
-
 
 /** Startup Server on config.port */
 app.listen(config.port);
