@@ -24,6 +24,20 @@ var storage = multer.diskStorage({
 /** Upload Multer Handler (Setup) */
 var upload = multer({ storage: storage });
 
+
+/*
+
+ Topics are overarching themes (think "Divesting from fossil fuels")
+ Groups are local communities that are interested in that theme
+ Events are special posts within a group which are a call to action
+ Posts are posts within a group which are just discussion/other posts
+
+ Topic > Group > Event / Post
+
+ */
+
+// Get's a user by an id
+// To get topics, groups, posts
 router.get('/users/:id', function(req, res) {
     MongoClient.connect(url, function(err, db) {
         var collection = db.collection('posts');
@@ -34,6 +48,7 @@ router.get('/users/:id', function(req, res) {
     });
 });
 
+// Add's a user to the database
 router.post('/users', function(req, res) {
     var user = req.body;
     console.log("Adding user: " + JSON.stringify(user));
@@ -46,6 +61,7 @@ router.post('/users', function(req, res) {
     });
 });
 
+// Get all posts
 router.get('/posts', function(req, res) {
 	MongoClient.connect(url, function(err, db) {
 		var collection = db.collection('posts');
@@ -56,13 +72,36 @@ router.get('/posts', function(req, res) {
 	});
 });
 
-router.get('/posts/topic/:id', function(req, res) {
+// Get a specific group post by id
+router.get('/posts/topic/group/:id', function(req, res) {
     MongoClient.connect(url, function(err, db) {
 		  var collection = db.collection('posts');
 		  collection.find({id:req.params.id}).toArray(function(err, result) {
 			  res.json({answer: result});
 			  db.close();
 		  });
+    });
+});
+
+// Get all of the groups for a topic
+router.get('/groups/topic', function(req, res) {
+    MongoClient.connect(url, function(err, db) {
+        var collection = db.collection('groups');
+        collection.find({}).toArray(function(err, result) {
+            res.json({answer:result});
+            db.close();
+        });
+    });
+});
+
+// Get all of the groups for a user
+router.get('/groups', function(req, res) {
+    MongoClient.connect(url, function(err, db) {
+        var collection = db.collection('groups');
+        collection.find({}).toArray(function(err, result) {
+            res.json({answer:result});
+            db.close();
+        });
     });
 });
 
@@ -78,5 +117,30 @@ router.post('/posts', function(req, res) {
         });
     });
 });
+
+router.post('/topics', function(req, res) {
+    var topic = req.body;
+    console.log("Adding topic: " + JSON.stringify(topic));
+    MongoClient.connect(url, function(err, db) {
+        var collection = db.collection('topics');
+        collection.insert(post, function(err, result) {
+            res.json({answer: result});
+            db.close();
+        });
+    });
+});
+
+router.post('/groups', function(req, res) {
+    var group = req.body;
+    console.log("Adding group: " + JSON.stringify(group));
+    MongoClient.connect(url, function(err, db) {
+        var collection = db.collection('groups');
+        collection.insert(post, function(err, result) {
+            res.json({answer: result});
+            db.close();
+        });
+    });
+});
+
 
 module.exports = router;
