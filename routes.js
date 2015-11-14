@@ -18,6 +18,8 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 module.exports = function(express) {
+  /* express router for /api routes */
+  var router = express.Router();
 
   /** Export router to give Express access to routes */
   return router;
