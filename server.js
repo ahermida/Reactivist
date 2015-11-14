@@ -1,6 +1,6 @@
 /**
- *  Food Classification App for Android Hackathon at VU
- *  Authors: David Siah, Albert Hermida, Will Makabenta, Jo Warren
+ *  Food Classification 
+ *  Authors: David Siah, Albert Hermida, 
  */
 var express     = require('express');
 var app         = express();
@@ -10,14 +10,17 @@ var morgan      = require('morgan');
 var routes      = require('./routes');
 var fs          = require('fs');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 /** Set Headers */
 app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  next();
-});
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+ });
 
 
 /** Set Public Directory to Static */
