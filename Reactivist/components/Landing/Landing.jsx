@@ -1,13 +1,13 @@
 /**
  * Component for Login Application
  */
-var React        = require('react');
-var Router       = require('react-router');
-var LoginStore   = require('../../stores/reactivistStore.js');
-var LoginActions = require('../../actions/ReactivistActions.js');
-var Main         = require('./Main.jsx');
-var Navbar       = require('./Navbar.jsx');
-var Footer       = require('../Shared/Footer.jsx');
+var React             = require('react');
+var Router            = require('react-router');
+var ReactivistStore   = require('../../stores/reactivistStore.js');
+var ReactivistActions = require('../../actions/ReactivistActions.js');
+var Main              = require('./Main.jsx');
+var Navbar            = require('./Navbar.jsx');
+var Footer            = require('../Shared/Footer.jsx');
 /**
  * Utility functions for Login Application
  */
