@@ -1,12 +1,12 @@
 /**
  * Store for Reactivist Application
  */
-var AppDispatcher    = require('../dispatchers/AppDispatcher.js');
-var LoginConstants   = require('../constants/ReactivistConstants.js');
-var EventEmitter     = require('events').EventEmitter;
-var assign           = require('object-assign');
-var CHANGE_EVENT     = 'change';
-var _data            = {};
+var AppDispatcher     = require('../dispatchers/AppDispatcher.js');
+var ReactiveConstants = require('../constants/ReactivistConstants.js');
+var EventEmitter      = require('events').EventEmitter;
+var assign            = require('object-assign');
+var CHANGE_EVENT      = 'change';
+var _data             = {};
 
 
 /**
