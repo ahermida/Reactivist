@@ -10,7 +10,7 @@
      //topics passed from the store and turned into TopicItems
      return this.props.topics.map(function(topic, i) {
        return (
-         <TopicItem imgPath={topic.imgPath}
+         <TopicItem imgPath={topic.img}
                description={topic.description}
                key={i}
                />

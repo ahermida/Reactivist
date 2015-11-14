@@ -12,6 +12,7 @@ var TopicImages       = require('./TopicImages.jsx');
  * Utility functions for Reactivist Application
  */
 function getState() {
+    console.log("Getting state");
   return {
     data: ReactivistStore.getData()
   };
@@ -31,6 +32,8 @@ module.exports = React.createClass({
 
   //Fires post-mount,
   componentDidMount: function() {
+    //this.state.topics = ReactivistActions.getTopics();
+    console.log("GetState " + JSON.stringify(this.state));
     ReactivistStore.addChangeListener(this._onChange);
   },
 
@@ -41,6 +44,7 @@ module.exports = React.createClass({
 
   render: function() {
     //Reactivist view
+      console.log("Loaded");
     return (
       <div id="ReactivistTopics">
         <div id="ReactivistMain">

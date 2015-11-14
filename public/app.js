@@ -7,7 +7,7 @@
 //filters actions for one way data flow
 var AppDispatcher = require('../dispatchers/AppDispatcher.js');
 //defined user actions
-var LoginConstants = require('../constants/ReactivistConstants.js');
+var ReactivistConstants = require('../constants/ReactivistConstants.js');
 //Superagent request
 var request = require('superagent');
 
@@ -16,7 +16,7 @@ module.exports = {
   //generic dispatcher call
   doSomething: function (something) {
     AppDispatcher.handleSetterAction({
-      actionType: LoginConstants.DO_SOMETHING,
+      actionType: ReactivistConstants.DO_SOMETHING,
       something: something
     });
   },
@@ -27,15 +27,29 @@ module.exports = {
       if (err) {
         //handle fail
         AppDispatcher.handleViewAction({
-          actionType: LoginConstants.LOGIN_USER_FAIL,
+          actionType: ReactivistConstants.LOGIN_USER_FAIL,
           messages: res.body.description
         });
       }
       console.log(res.body);
       //handle success
       AppDispatcher.handleViewAction({
-        actionType: LoginConstants.LOGIN_USER_SUCCESS,
+        actionType: ReactivistConstants.LOGIN_USER_SUCCESS,
         token: res.body['access_token']
+      });
+    });
+  },
+
+  getTopics: function () {
+    request.get('http://localhost:8080/api/topics').end(function (err, res) {
+      if (err) {
+        // failure
+        console.log("getTopics request Failed");
+      }
+      console.log("getTopics request Success");
+      AppDispatcher.handleViewAction({
+        actionType: ReactivistConstants.GET_TOPICS,
+        topics: res.body
       });
     });
   }
@@ -343,6 +357,7 @@ var TopicImages = require('./TopicImages.jsx');
  * Utility functions for Reactivist Application
  */
 function getState() {
+  console.log("Getting state");
   return {
     data: ReactivistStore.getData()
   };
@@ -363,6 +378,8 @@ module.exports = React.createClass({
 
   //Fires post-mount,
   componentDidMount: function () {
+    //this.state.topics = ReactivistActions.getTopics();
+    console.log("GetState " + JSON.stringify(this.state));
     ReactivistStore.addChangeListener(this._onChange);
   },
 
@@ -373,6 +390,7 @@ module.exports = React.createClass({
 
   render: function () {
     //Reactivist view
+    console.log("Loaded");
     return React.createElement(
       'div',
       { id: 'ReactivistTopics' },
@@ -400,9 +418,10 @@ module.exports = React.createClass({
 var keyMirror = require('keymirror');
 
 module.exports = keyMirror({
-  LOGIN_USER_SUCCESS: null,
-  LOGIN_USER_FAIL: null,
-  SIGNUP_USER: null
+    LOGIN_USER_SUCCESS: null,
+    LOGIN_USER_FAIL: null,
+    SIGNUP_USER: null,
+    GET_TOPICS: null
 });
 
 },{"keymirror":43}],10:[function(require,module,exports){
@@ -424,7 +443,7 @@ module.exports = AppDispatcher;
  * Store for Reactivist Application
  */
 var AppDispatcher = require('../dispatchers/AppDispatcher.js');
-var ReactiveConstants = require('../constants/ReactivistConstants.js');
+var ReactivistConstants = require('../constants/ReactivistConstants.js');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 var CHANGE_EVENT = 'change';
@@ -486,6 +505,11 @@ reactivistStore.dispatchToken = AppDispatcher.register(function (payload) {
 
     case ReactivistConstants.LOGIN_USER_FAIL:
       console.log(action.message);
+      break;
+
+    case ReactivistConstants.GET_TOPICS:
+      console.log(action.topics);
+      _data.topics = action.topics;
       break;
 
     default:

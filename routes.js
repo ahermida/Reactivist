@@ -113,8 +113,8 @@ router.get('/groups', function(req, res) {
 router.get('/topics', function(req, res) {
     MongoClient.connect(url, function(err, db) {
         var collection = db.collection('topics');
-        collection.fing().toArray(function(err, result) {
-            res.json({answer: result});
+        collection.find().toArray(function(err, result) {
+            res.json(result);
             db.close();
         });
     });
@@ -126,7 +126,7 @@ router.post('/posts', function(req, res) {
     MongoClient.connect(url, function(err, db) {
         var collection = db.collection('posts');
         collection.insert(post, function(err, result) {
-            res.json({answer: result});
+            res.json(result);
             db.close();
         });
     });
