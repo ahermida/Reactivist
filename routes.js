@@ -36,7 +36,7 @@ var upload = multer({ storage: storage });
 
  */
 router.post('/upload', upload.single('Image') ,function(req, res) {
-	res.json({'code': __dirname});
+	res.json({'code': __dirname + '/public/img'});
 });
 
 

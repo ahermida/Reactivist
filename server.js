@@ -37,6 +37,11 @@ app.use(morgan('dev'));
 /** Import Routes */
 app.use('/api', routes);
 
+/* Client */
+app.get('*', function(req, res) {
+	res.send('hello');
+});
+
 /** Startup Server on config.port */
 app.listen(config.port);
 console.log('App running on http://localhost:' + config.port);
