@@ -41,8 +41,10 @@ module.exports = React.createClass({
   render: function() {
     //Reactivist view
     return (
-      <div>
-        <Navbar />
+      <div id="ReactivistTopics">
+        <div id="ReactivistMain">
+          <Navbar />
+        </div>
         <Footer />
       </div>
     );
