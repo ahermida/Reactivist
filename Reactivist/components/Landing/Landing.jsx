@@ -5,6 +5,7 @@ var React             = require('react');
 var Router            = require('react-router');
 var ReactivistStore   = require('../../stores/reactivistStore.js');
 var ReactivistActions = require('../../actions/ReactivistActions.js');
+var Link              = Router.Link;
 
 /**
  * Utility functions for Reactivist Application
@@ -43,18 +44,18 @@ module.exports = React.createClass({
       <div id="main">
         <h1 id="logo"><span id="ra-sign-in-r">re</span><span id="ra-sign-in-right">activist</span></h1>
         <div id="social-button-container">
-          <a className="btn btn-block btn-social btn-facebook">
+          <Link to="/topics" className="btn btn-block btn-social btn-facebook">
             <span className="fa fa-facebook"></span> Sign in with Facebook
-          </a>
-          <a className="btn btn-block btn-social btn-google">
+          </Link>
+          <Link to="/topics" className="btn btn-block btn-social btn-google">
             <span className="fa fa-google"></span> Sign in with Google
-          </a>
-          <a className="btn btn-block btn-social btn-github">
+          </Link>
+          <Link to="/topics" className="btn btn-block btn-social btn-github">
             <span id="ra-sign-in">
               <span id="ra-sign-in-r">r</span>
               <span id="ra-sign-in-a">a</span>
             </span>Sign in
-          </a>
+          </Link>
         </div>
       </div>
     );
