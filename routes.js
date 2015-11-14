@@ -15,7 +15,7 @@ var url         = config.mongouid;
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, process.env.HOME + 'Documents/Languages/Js/Reactivist/public');
+      cb(null, __dirname + '/public/img');
     },
     filename: function (req, file, cb) {
       cb(null, file.fieldname + '-' + Date.now() + ".jpg");
@@ -36,8 +36,8 @@ var upload = multer({ storage: storage });
 
  */
 router.post('/upload', upload.single('Image') ,function(req, res) {
-	res.json({'code': 200});
-}); 
+	res.json({'code': __dirname});
+});
 
 
 router.use(bodyParser.json({limit: '20mb'}));
