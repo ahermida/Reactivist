@@ -4,6 +4,8 @@
 var fs                = require('fs');
 var config            = require('./config');
 var multer            = require('multer');
+var router            = express.Router();
+
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -17,10 +19,20 @@ var storage = multer.diskStorage({
 /** Upload Multer Handler (Setup) */
 var upload = multer({ storage: storage });
 
-module.exports = function(express) {
-  /* express router for /api routes */
-  var router = express.Router();
+router.get('/posts/:id', function(req, res) {
+});
 
-  /** Export router to give Express access to routes */
-  return router;
-};
+router.get('/posts/topic/:id', function(req, res) {
+    
+});
+
+router.post('/posts/', function(req, res) {
+    var post = req.body;
+    console.log("Adding post: " + JSON.stringify(post));
+
+
+});
+
+
+
+module.exports = router;
