@@ -1,12 +1,12 @@
 /**
- * Component for Reactivist Application
+ * Component for Topics
  */
 var React             = require('react');
 var Router            = require('react-router');
 var ReactivistStore   = require('../../stores/reactivistStore.js');
 var ReactivistActions = require('../../actions/ReactivistActions.js');
-var Link              = Router.Link;
-
+var Navbar            = require('./Navbar.jsx');
+var Footer            = require('../Shared/Footer.jsx');
 /**
  * Utility functions for Reactivist Application
  */
@@ -41,29 +41,18 @@ module.exports = React.createClass({
   render: function() {
     //Reactivist view
     return (
-      <div id="main">
-        <h1 id="logo"><span id="ra-sign-in-r">re</span><span id="ra-sign-in-right">activist</span></h1>
-        <div id="social-button-container">
-          <Link to="/topics" className="btn btn-block btn-social btn-facebook">
-            <span className="fa fa-facebook"></span> Sign in with Facebook
-          </Link>
-          <Link to="/topics" className="btn btn-block btn-social btn-google">
-            <span className="fa fa-google"></span> Sign in with Google
-          </Link>
-          <Link to="/topics" className="btn btn-block btn-social btn-github">
-            <span id="ra-sign-in">
-              <span id="ra-sign-in-r">r</span>
-              <span id="ra-sign-in-a">a</span>
-            </span>Sign in
-          </Link>
+      <div id="ReactivistTopics">
+        <div id="ReactivistMain">
+          <Navbar />
         </div>
+        <Footer />
       </div>
     );
   },
 
   //sets page to rerender on every change
   _onChange: function() {
-  this.setState(getState());
+    this.setState(getState());
   }
 
 });

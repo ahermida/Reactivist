@@ -5,16 +5,17 @@ var mongodb = require('mongodb');
 
 //We need to work with "MongoClient" interface in order to connect to a mongodb server.
 var MongoClient = mongodb.MongoClient;
-var fs          = require('fs');
 var config      = require('./config');
 var multer      = require('multer');
 var express     = require('express');
+var bodyParser  = require('body-parser');
 var router      = express.Router();
 var url         = config.mongouid;
 
+
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, process.env.HOME + '/public/img');
+      cb(null, __dirname + '/public/img');
     },
     filename: function (req, file, cb) {
       cb(null, file.fieldname + '-' + Date.now() + ".jpg");
@@ -23,7 +24,6 @@ var storage = multer.diskStorage({
 
 /** Upload Multer Handler (Setup) */
 var upload = multer({ storage: storage });
-
 
 /*
 
@@ -35,9 +35,14 @@ var upload = multer({ storage: storage });
  Topic > Group > Event / Post
 
  */
+router.post('/upload', upload.single('Image') ,function(req, res) {
+	res.json({'code': __dirname + '/public/img'});
+});
 
-// Get's a user by an id
-// To get topics, groups, posts
+
+router.use(bodyParser.json({limit: '20mb'}));
+router.use(bodyParser.urlencoded({extended: true}));
+
 router.get('/users/:id', function(req, res) {
     MongoClient.connect(url, function(err, db) {
         var collection = db.collection('posts');
@@ -106,9 +111,8 @@ router.get('/groups', function(req, res) {
 });
 
 router.post('/posts', function(req, res) {
-    console.log(req);
     var post = req.body;
-    console.log("Adding post: " + JSON.stringify(post));
+    console.log("Adding post: " + post);
     MongoClient.connect(url, function(err, db) {
         var collection = db.collection('posts');
         collection.insert(post, function(err, result) {
@@ -141,6 +145,5 @@ router.post('/groups', function(req, res) {
         });
     });
 });
-
 
 module.exports = router;

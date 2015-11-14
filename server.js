@@ -10,8 +10,8 @@ var morgan      = require('morgan');
 var routes      = require('./routes');
 var fs          = require('fs');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+//app.use(bodyParser.json({limit: '20mb'}));
+//app.use(bodyParser.urlencoded({extended: true}));
 
 /** Set Headers */
 app.use(function(req, res, next) {
@@ -36,6 +36,11 @@ app.use(morgan('dev'));
 
 /** Import Routes */
 app.use('/api', routes);
+
+/* Client */
+app.get('*', function(req, res) {
+	res.send('hello');
+});
 
 /** Startup Server on config.port */
 app.listen(config.port);
