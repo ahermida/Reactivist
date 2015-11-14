@@ -4,11 +4,12 @@
 var React       = require('react');
 var ReactDOM    = require('react-dom');
 var ReactRouter = require('react-router');
+var history     = require('history/lib/createBrowserHistory');
 var Router      = ReactRouter.Router;
 var Route       = ReactRouter.Route;
 var Landing       = require('./components/Landing/Landing.jsx');
 
 //run router
-ReactDOM.render(<Router>
+ReactDOM.render(<Router history={history()}>
                   <Route path="/" component={Landing}/>
-                </Router>, document.getElementById('TeacherReview'));
+                </Router>, document.getElementById('Reactivist'));
