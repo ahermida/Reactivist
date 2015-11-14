@@ -110,6 +110,16 @@ router.get('/groups', function(req, res) {
     });
 });
 
+router.get('/topics', function(req, res) {
+    MongoClient.connect(url, function(err, db) {
+        var collection = db.collection('topics');
+        collection.fing().toArray(function(err, result) {
+            res.json({answer: result});
+            db.close();
+        });
+    });
+});
+
 router.post('/posts', function(req, res) {
     var post = req.body;
     console.log("Adding post: " + post);
