@@ -7,7 +7,7 @@ var multer            = require('multer');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, process.env.HOME + '/public');
+      cb(null, process.env.HOME + '/public/img');
     },
     filename: function (req, file, cb) {
       cb(null, file.fieldname + '-' + Date.now() + ".jpg");
