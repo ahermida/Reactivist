@@ -1,6 +1,6 @@
 /**
- *  Food Classification 
- *  Authors: David Siah, Albert Hermida, 
+ *  Food Classification
+ *  Authors: David Siah, Albert Hermida,
  */
 var express     = require('express');
 var app         = express();
@@ -39,7 +39,7 @@ app.use('/api', routes);
 
 /* Client */
 app.get('*', function(req, res) {
-	res.send('hello');
+	res.sendFile(__dirname + '/public/index.html');
 });
 
 /** Startup Server on config.port */
