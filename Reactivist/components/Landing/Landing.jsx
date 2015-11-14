@@ -42,20 +42,23 @@ module.exports = React.createClass({
     //Reactivist view
     return (
       <div id="main">
-        <h1 id="logo"><span id="ra-sign-in-r">re</span><span id="ra-sign-in-right">activist</span></h1>
-        <div id="social-button-container">
-          <Link to="/topics" className="btn btn-block btn-social btn-facebook">
-            <span className="fa fa-facebook"></span> Sign in with Facebook
-          </Link>
-          <Link to="/topics" className="btn btn-block btn-social btn-google">
-            <span className="fa fa-google"></span> Sign in with Google
-          </Link>
-          <Link to="/topics" className="btn btn-block btn-social btn-github">
-            <span id="ra-sign-in">
-              <span id="ra-sign-in-r">r</span>
-              <span id="ra-sign-in-a">a</span>
-            </span>Sign in
-          </Link>
+        <div id="background"></div>
+        <div id="content">
+          <h1 id="logo"><span id="ra-sign-in-r">re</span><span id="ra-sign-in-right">activist</span></h1>
+          <div id="social-button-container">
+              <Link to="/topics" className="btn btn-block btn-social btn-facebook">
+                <span className="fa fa-facebook"></span> Sign in with Facebook
+              </Link>
+              <Link to="/topics" className="btn btn-block btn-social btn-google">
+                <span className="fa fa-google"></span> Sign in with Google
+              </Link>
+              <Link to="/topics" className="btn btn-block btn-social btn-github">
+                <span id="ra-sign-in">
+                  <span id="ra-sign-in-r">r</span>
+                  <span id="ra-sign-in-a">a</span>
+                </span>Sign in
+              </Link>
+          </div>
         </div>
       </div>
     );

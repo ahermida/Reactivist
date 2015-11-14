@@ -5,12 +5,11 @@ var mongodb = require('mongodb');
 
 //We need to work with "MongoClient" interface in order to connect to a mongodb server.
 var MongoClient = mongodb.MongoClient;
-var config      = require('./config');
 var multer      = require('multer');
 var express     = require('express');
 var bodyParser  = require('body-parser');
 var router      = express.Router();
-var url         = config.mongouid;
+var url         = process.env.MDBKEY;
 
 
 var storage = multer.diskStorage({
@@ -36,7 +35,8 @@ var upload = multer({ storage: storage });
 
  */
 router.post('/upload', upload.single('Image') ,function(req, res) {
-	res.json({'code': __dirname + '/public/img'});
+	debugger;
+    res.json({'code': __dirname + '/public/img'});
 });
 
 
@@ -105,6 +105,16 @@ router.get('/groups', function(req, res) {
         var collection = db.collection('groups');
         collection.find({}).toArray(function(err, result) {
             res.json({answer:result});
+            db.close();
+        });
+    });
+});
+
+router.get('/topics', function(req, res) {
+    MongoClient.connect(url, function(err, db) {
+        var collection = db.collection('topics');
+        collection.fing().toArray(function(err, result) {
+            res.json({answer: result});
             db.close();
         });
     });

@@ -109,53 +109,58 @@ module.exports = React.createClass({
     return React.createElement(
       'div',
       { id: 'main' },
-      React.createElement(
-        'h1',
-        { id: 'logo' },
-        React.createElement(
-          'span',
-          { id: 'ra-sign-in-r' },
-          're'
-        ),
-        React.createElement(
-          'span',
-          { id: 'ra-sign-in-right' },
-          'activist'
-        )
-      ),
+      React.createElement('div', { id: 'background' }),
       React.createElement(
         'div',
-        { id: 'social-button-container' },
+        { id: 'content' },
         React.createElement(
-          Link,
-          { to: '/topics', className: 'btn btn-block btn-social btn-facebook' },
-          React.createElement('span', { className: 'fa fa-facebook' }),
-          ' Sign in with Facebook'
-        ),
-        React.createElement(
-          Link,
-          { to: '/topics', className: 'btn btn-block btn-social btn-google' },
-          React.createElement('span', { className: 'fa fa-google' }),
-          ' Sign in with Google'
-        ),
-        React.createElement(
-          Link,
-          { to: '/topics', className: 'btn btn-block btn-social btn-github' },
+          'h1',
+          { id: 'logo' },
           React.createElement(
             'span',
-            { id: 'ra-sign-in' },
-            React.createElement(
-              'span',
-              { id: 'ra-sign-in-r' },
-              'r'
-            ),
-            React.createElement(
-              'span',
-              { id: 'ra-sign-in-a' },
-              'a'
-            )
+            { id: 'ra-sign-in-r' },
+            're'
           ),
-          'Sign in'
+          React.createElement(
+            'span',
+            { id: 'ra-sign-in-right' },
+            'activist'
+          )
+        ),
+        React.createElement(
+          'div',
+          { id: 'social-button-container' },
+          React.createElement(
+            Link,
+            { to: '/topics', className: 'btn btn-block btn-social btn-facebook' },
+            React.createElement('span', { className: 'fa fa-facebook' }),
+            ' Sign in with Facebook'
+          ),
+          React.createElement(
+            Link,
+            { to: '/topics', className: 'btn btn-block btn-social btn-google' },
+            React.createElement('span', { className: 'fa fa-google' }),
+            ' Sign in with Google'
+          ),
+          React.createElement(
+            Link,
+            { to: '/topics', className: 'btn btn-block btn-social btn-github' },
+            React.createElement(
+              'span',
+              { id: 'ra-sign-in' },
+              React.createElement(
+                'span',
+                { id: 'ra-sign-in-r' },
+                'r'
+              ),
+              React.createElement(
+                'span',
+                { id: 'ra-sign-in-a' },
+                'a'
+              )
+            ),
+            'Sign in'
+          )
         )
       )
     );
