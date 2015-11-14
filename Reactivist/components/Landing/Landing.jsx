@@ -1,15 +1,15 @@
 /**
- * Component for Login Application
+ * Component for Reactivist Application
  */
-var React        = require('react');
-var Router       = require('react-router');
-var LoginStore   = require('../../stores/reactivistStore.js');
-var LoginActions = require('../../actions/ReactivistActions.js');
-var Main         = require('./Main.jsx');
-var Navbar       = require('./Navbar.jsx');
-var Footer       = require('../Shared/Footer.jsx');
+var React             = require('react');
+var Router            = require('react-router');
+var ReactivistStore   = require('../../stores/reactivistStore.js');
+var ReactivistActions = require('../../actions/ReactivistActions.js');
+var Main              = require('./Main.jsx');
+var Navbar            = require('./Navbar.jsx');
+var Footer            = require('../Shared/Footer.jsx');
 /**
- * Utility functions for Login Application
+ * Utility functions for Reactivist Application
  */
 function getState() {
   return {
@@ -31,16 +31,16 @@ module.exports = React.createClass({
 
   //Fires post-mount,
   componentDidMount: function() {
-    LoginStore.addChangeListener(this._onChange);
+    ReactivistStore.addChangeListener(this._onChange);
   },
 
   // Remove change listers from stores
   componentWillUnmount: function() {
-    LoginStore.removeChangeListener(this._onChange);
+    ReactivistStore.removeChangeListener(this._onChange);
   },
 
   render: function() {
-    //login view
+    //Reactivist view
     return (
       <div id="main">
         <Navbar />
