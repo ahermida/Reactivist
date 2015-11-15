@@ -80,10 +80,10 @@ router.get('/posts', function(req, res) {
 });
 
 // Get a specific group post by id
-router.get('/posts/topic/group/:id', function(req, res) {
+router.get('/posts/:group', function(req, res) {
     MongoClient.connect(url, function(err, db) {
 		  var collection = db.collection('posts');
-		  collection.find({id:req.params.id}).toArray(function(err, result) {
+		    collection.find({group: req.params.group}).toArray(function(err, result) {
 			  res.json({answer: result});
 			  db.close();
 		  });
