@@ -2,6 +2,7 @@
  * Topic images and description rendering
  */
  var React = require('react');
+
  module.exports = React.createClass({
 
    renderItems: function() {
@@ -13,13 +14,10 @@
        </span>
      );
    },
+
    render: function() {
      return (
-       <div id="TopicImages">
-         {
-             this.renderItems() //renders the topic items passed in props
-         }
-       </div>
+        <div id="TopicImages">{ this.renderItems() }</div>
      );
    }
  });
