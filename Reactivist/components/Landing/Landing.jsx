@@ -53,6 +53,9 @@ module.exports = React.createClass({
               <Link to="/topics" className="btn btn-block btn-social btn-facebook">
                 <span className="fa fa-facebook"></span> Sign in with Facebook
               </Link>
+              <Link to="/topics" className="btn btn-block btn-social btn-twitter">
+                <span className="fa fa-twitter"></span> Sign in with Twitter
+              </Link>
               <Link to="/topics" className="btn btn-block btn-social btn-google">
                 <span className="fa fa-google"></span> Sign in with Google
               </Link>
