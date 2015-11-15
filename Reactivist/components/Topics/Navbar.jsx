@@ -5,15 +5,45 @@ var React             = require('react');
 var Router            = require('react-router');
 var ReactivistActions = require('../../actions/ReactivistActions.js');
 var Link              = Router.Link;
+var request           = require('superagent');
 var markers           = [];
+var groups            = [];
 
 function dropPins(position, map, time) {
+  // Drop set of maps (array) on map obj.
+  window.setTimeout(function() {
+    var m = new google.maps.Marker({
+      position: position,
+      map: map,
+      animation: google.maps.Animation.DROP,
+      icon: 'img/BlueMarker.png'
+    });
+    
+    markers.push(m);
+
+    m.addListener('click', function() {
+      request.get('http://localhost:8080/api/groups')
+      .end(function(err, res) {
+        if(err) {
+        // failure
+          console.log("getTopics request Failed");
+        }
+        console.log("getTopics request Success", res.body.answer[24]);
+        groups.push(res.body.answer[24]);
+        
+      });
+
+    });
+  }, time);
+}
+
+function dropInitialPin(position, map, time) {
   // Drop set of maps (array) on map obj.
   window.setTimeout(function() {
     markers.push(new google.maps.Marker({
       position: position,
       map: map,
-      animation: google.maps.Animation.DROP
+      animation: google.maps.Animation.DROP,
     }));
   }, time);
 }
@@ -35,7 +65,6 @@ var Navbar = React.createClass({
 
   onClick: function() {
 
-
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = {
@@ -44,9 +73,29 @@ var Navbar = React.createClass({
         };
 
         map.setCenter(pos);
-        map.setZoom(16);
-        dropPins(pos, map, 0);
-        drawCircle(pos, 300);
+        map.setZoom(14);
+        dropInitialPin(pos, map, 0);
+        drawCircle(pos, 700);
+
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    }
+  },
+
+  onClick2: function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        map.setZoom(14);        
+
+        for (var i = 0; i < 10; i++) {
+          var pos2 = {
+            lat: position.coords.latitude + (Math.random() / 100.0),
+            lng: position.coords.longitude + (Math.random() / 100.0)
+          };  
+
+          dropPins(pos2, map, 125 * i);
+        }
 
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
@@ -64,6 +113,7 @@ var Navbar = React.createClass({
             </Link>
           </div>
           <div className="navbar-form navbar-right" role="search">
+            <button className="btn btn-default" onClick={this.onClick2}>Groups nearby</button>
             <button className="btn btn-default" onClick={this.onClick}>Locate Me!</button>
           </div>
         </div>

@@ -23,7 +23,7 @@ module.exports = React.createClass({
    //topics passed from the store and turned into TopicItems
     return (
       <span onClick={this._onClick} className="TopicImage">
-        <img className="TopicItem-Image" height="115" width="115" src={this.props.imgPath}></img>
+        <img className="TopicItem-Image" height="100" width="100" src={this.props.imgPath}></img>
         <p className="TopicItem-description">{this.props.topic}</p>
       </span>
    );

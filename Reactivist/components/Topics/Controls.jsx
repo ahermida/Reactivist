@@ -43,6 +43,13 @@ var Controls = React.createClass({
 		    dropPins(pos, map, 0);
 		    drawCircle(pos, 300);
 
+		    var pos2 = {
+		    	lat: position.coords.latitude + Math.random(),
+		    	lng: position.coords.longitude + Math.random()
+		    }
+
+		    dropPins(pos2, map, 200);
+
 		  }, function() {
 		    //handleLocationError(true, infoWindow, map.getCenter());
 		    console.log('err');
@@ -57,10 +64,9 @@ var Controls = React.createClass({
 	render: function() {
 		return (
 		<div id="controls">
-			<h4 className="control-header">Create Group </h4><input  className="control-input" type="text" placeholder="Name" />
-			<h4 className="control-header">Radius (miles)</h4><input className="control-input" type="text" placeholder="30" />
-			<button className="btn btn-default" onClick={this.sendForm}>Create Group</button>
 			<a href="https://twitter.com/share" className="twitter-share-button" data-via="dsiah17" data-hashtags="reactivist">Share this Group</a>
+			<br /><p><i>Click on a Blue Pin to see nearby group</i></p>
+			<div id="gpin-entry"></div>
 		</div>);
 	}
 });
