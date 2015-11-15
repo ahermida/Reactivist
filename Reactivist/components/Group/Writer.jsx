@@ -53,13 +53,13 @@ module.exports = React.createClass({
         <input onKeyUp={this.onKeyUp}
                type="text"
                valueLink={valueLink}
-               className="writer_input"
+               className="writer_input input"
                name="message"
                placeholder="Write a post..."
                id="writer_input"/>
         <button
           type="submit"
-          className="writer_button"
+          className="btn btn-primary writer_button"
           onClick={this.onClick}>
           send
         </button>
