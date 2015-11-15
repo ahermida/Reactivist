@@ -8,6 +8,8 @@ var ReactivistActions = require('../../actions/ReactivistActions.js');
 var Navbar            = require('./Navbar.jsx');
 var Footer            = require('../Shared/Footer.jsx');
 var TopicImages       = require('./TopicImages.jsx');
+var Map               = require('./Map.jsx');
+
 /**
  * Utility functions for Reactivist Application
  */
@@ -50,6 +52,7 @@ module.exports = React.createClass({
         <div id="ReactivistMain">
           <Navbar />
           <TopicImages topics={this.state.data.topics} />
+          <Map />
         </div>
         <Footer />
       </div>
