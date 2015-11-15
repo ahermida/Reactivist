@@ -10,10 +10,10 @@
      //topics passed from the store and turned into TopicItems
        console.log(JSON.stringify(this.props.topics));
      return this.props.topics.map(function(topic, i) {
-         console.log('img/' + topic.image);
+         console.log(JSON.stringify(topic.topic));
        return (
          <TopicItem imgPath={'img/' + topic.image}
-               description={topic.description}
+               topic={topic.topic}
                key={i}
                />
        );
