@@ -9,7 +9,8 @@ var Navbar            = require('../Topics/Navbar.jsx');
 var Footer            = require('../Shared/Footer.jsx');
 var Upcoming          = require('./Upcoming.jsx');
 var Posts             = require('./Posts.jsx');
-var GMap               = require('./GMap.jsx');
+var GMap              = require('./GMap.jsx');
+var Writer            = require('./Writer.jsx');
 
 /**
  * Utility functions for Reactivist Application
@@ -34,7 +35,7 @@ module.exports = React.createClass({
 
   //Fires post-mount,
   componentDidMount: function() {
-      ReactivistActions.getPosts(this.getParams().group);
+      //ReactivistActions.getPosts(this.getParams().group);
       ReactivistStore.addChangeListener(this._onChange);
   },
 
@@ -51,6 +52,7 @@ module.exports = React.createClass({
         <div style={{'height': '60px'}}></div>
         <div id="gradient-block"></div>
         <div><GMap id="group-location-map" className="breakout" /></div>
+        <Writer />
         <Upcoming />
         <Posts posts={this.state.data.posts}/>
         <Footer />

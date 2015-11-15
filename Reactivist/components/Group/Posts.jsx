@@ -12,6 +12,7 @@
        return (
          <Post imgPath={('img/' + post.image) || false}
                text={post.text || ''}
+               timestamp={post.timestamp}
                key={i}
                />
        );

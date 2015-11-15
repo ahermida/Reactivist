@@ -34,7 +34,7 @@ function drawCircle(center, radius) {
 var Navbar = React.createClass({
 
   onClick: function() {
-    
+
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -60,7 +60,7 @@ var Navbar = React.createClass({
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
-    } 
+    }
   },
 
   render: function() {
