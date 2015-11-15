@@ -13,10 +13,24 @@ function dropPins(position, map, time) {
     markers.push(new google.maps.Marker({
       position: position,
       map: map,
-      animation: google.maps.Animation.DROP
+      animation: google.maps.Animation.DROP,
+      icon: 'img/BlueMarker.png'
     }));
   }, time);
 }
+
+function dropInitialPin(position, map, time) {
+  // Drop set of maps (array) on map obj.
+  window.setTimeout(function() {
+    markers.push(new google.maps.Marker({
+      position: position,
+      map: map,
+      animation: google.maps.Animation.DROP,
+    }));
+  }, time);
+}
+
+
 
 function drawCircle(center, radius) {
   var cityCircle = new google.maps.Circle({
@@ -45,7 +59,7 @@ var Navbar = React.createClass({
 
         map.setCenter(pos);
         map.setZoom(14);
-        dropPins(pos, map, 0);
+        dropInitialPin(pos, map, 0);
         drawCircle(pos, 700);
 
         for (var i = 0; i < 10; i++) {
