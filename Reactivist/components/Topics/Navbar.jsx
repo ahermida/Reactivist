@@ -30,7 +30,20 @@ function dropPins(position, map, time) {
         }
         console.log("getTopics request Success", res.body.answer[24]);
         groups.push(res.body.answer[24]);
+
+        var entry = document.getElementById('gpin-entry');
         
+        var topicstr = groups[0].topic;
+        var groupstr = groups[0].group;
+        var topic = document.createElement('h4')
+        topic.textContent = topicstr;
+        var group = document.createElement('a');
+        group.textContent = groupstr;
+        
+        group.href = 'http://localhost:8080/groups/' + groupstr.replace(/\s/g, "-");;
+        
+        var header = entry.appendChild(topic);
+        var butt   = entry.appendChild(group);
       });
 
     });
