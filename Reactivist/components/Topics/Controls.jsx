@@ -43,6 +43,13 @@ var Controls = React.createClass({
 		    dropPins(pos, map, 0);
 		    drawCircle(pos, 300);
 
+		    var pos2 = {
+		    	lat: position.coords.latitude + Math.random(),
+		    	lng: position.coords.longitude + Math.random()
+		    }
+
+		    dropPins(pos2, map, 200);
+
 		  }, function() {
 		    //handleLocationError(true, infoWindow, map.getCenter());
 		    console.log('err');

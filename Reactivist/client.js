@@ -16,5 +16,5 @@ ReactDOM.render(<Router history={history()}>
                   <Route path="/" component={Landing}/>
                   <Route path="/topics" component={Topics}/>
                   <Route path="/groups" component={Group}/>
-                  <Route path="/abc" component={GroupForm}/>
+                  <Route path="/gform" component={GroupForm}/>
                 </Router>, document.getElementById('Reactivist'));

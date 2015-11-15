@@ -44,9 +44,18 @@ var Navbar = React.createClass({
         };
 
         map.setCenter(pos);
-        map.setZoom(16);
+        map.setZoom(14);
         dropPins(pos, map, 0);
-        drawCircle(pos, 300);
+        drawCircle(pos, 700);
+
+        for (var i = 0; i < 10; i++) {
+          var pos2 = {
+            lat: position.coords.latitude + (Math.random() / 100.0),
+            lng: position.coords.longitude + (Math.random() / 100.0)
+          };  
+
+          dropPins(pos2, map, 125 * i);
+        }
 
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
