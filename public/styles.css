@@ -281,5 +281,5 @@ body {
   flex-flow: row wrap;
  }
  .TopicItem:hover {
-   opacity: .5;
+   opacity: .9;
  }
