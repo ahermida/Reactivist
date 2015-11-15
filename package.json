@@ -37,6 +37,7 @@
     "object-assign": "^4.0.1",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
+    "react-facebook-login": "^1.0.6",
     "react-google-maps": "^4.2.0",
     "react-router": "^1.0.0",
     "superagent": "^1.4.0"
