@@ -4,11 +4,13 @@
 var React = require('react');
 
 module.exports = React.createClass({
-
+    getInitialState: function() {
+      return {
+        clicked: false
+      }
+    },
     _onClick: function() {
-        console.log("Clicked");
-        //console.log(JSON.stringify(localStorage.selectedTopics));
-        console.log(event.target.value);
+        this.setState({clicked: !this.state.clicked});
         if(localStorage.selectedTopics) {
             var storedTopics = JSON.parse(localStorage.selectedTopics);
             storedTopics.push("HI123");
@@ -21,8 +23,11 @@ module.exports = React.createClass({
 
   renderItems: function() {
    //topics passed from the store and turned into TopicItems
+   var i = this.state.clicked ? i = {backgroundColor: 'lime'}: i = {display: 'block'};
     return (
-      <span onClick={this._onClick} className="TopicImage">
+      <span onClick={this._onClick}
+        style={i}
+        className="TopicImage">
         <img className="TopicItem-Image" height="100" width="100" src={this.props.imgPath}></img>
         <p className="TopicItem-description">{this.props.topic}</p>
       </span>
@@ -31,7 +36,7 @@ module.exports = React.createClass({
 
   render: function() {
     return (
-      <div id="TopicItem">{ this.renderItems() }</div>
+      <div className="TopicItem">{ this.renderItems() }</div>
     );
   }
 });

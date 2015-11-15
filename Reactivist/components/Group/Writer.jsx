@@ -49,22 +49,17 @@ module.exports = React.createClass({
       requestChange: this.updateForm
     };
     return (
-      <div id="writer">
-        <input onKeyUp={this.onKeyUp}
-               type="text"
-               valueLink={valueLink}
-               className="writer_input input"
-               name="message"
-               placeholder="Write a post..."
-               id="writer_input"/>
-        <button
-          type="submit"
-          className="btn btn-primary writer_button"
-          onClick={this.onClick}>
-          send
-        </button>
-
-      </div>
+      <div id="inputgrp" className="input-group">
+         <input type="text" className="form-control" onKeyUp={this.onKeyUp}
+                type="text"
+                valueLink={valueLink}
+                name="message"
+                placeholder="Write a post..."
+                id="writer_input"/>
+              <span className="input-group-btn">
+           <button className="btn btn-default" type="submit" onClick={this.onClick} type="button">send</button>
+         </span>
+       </div>
     );
   }
 });

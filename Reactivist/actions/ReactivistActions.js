@@ -82,6 +82,7 @@ module.exports = {
           console.log("getTopics request Failed");
         }
         console.log("getTopics request Success");
+        console.log(res.body);
         AppDispatcher.handleViewAction({
           actionType: ReactivistConstants.GET_POSTS,
           posts: res.body.answer
@@ -98,7 +99,8 @@ module.exports = {
         console.log("getTopics request Success");
         AppDispatcher.handleViewAction({
           actionType: ReactivistConstants.POST_MESSAGE,
-          posts: res.body.answer
+          posts: res.body.answer,
+          post: post
         });
       });
   }
