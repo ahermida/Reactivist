@@ -271,6 +271,7 @@ body {
 }
 
 .TopicItem {
+  cursor: pointer;
   background: white;
   border: 1px solid #ececec;
   border-radius: 5px;
@@ -278,4 +279,7 @@ body {
   margin: 10px;
   display: flex;
   flex-flow: row wrap;
+ }
+ .TopicItem:hover {
+   opacity: .5;
  }
