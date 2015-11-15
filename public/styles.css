@@ -68,7 +68,7 @@ body {
   display: flex;
   margin: auto;
   max-width: 552px;
-  margin-right: 203px;
+  margin-right: 382px;
 }
 #content {
   height: 100%;
@@ -89,7 +89,9 @@ body {
   min-height: 100%;
 }
 #mcmappy {
-  max-width: 400px;
+  display: flex;
+  margin: auto;
+  margin-left: 15%;
   padding: 20px;
 }
 #ReactivistTopics {
