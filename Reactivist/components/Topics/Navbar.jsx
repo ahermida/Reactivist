@@ -5,12 +5,22 @@ var React             = require('react');
 var Router            = require('react-router');
 var ReactivistActions = require('../../actions/ReactivistActions.js');
 var Link              = Router.Link;
+var markers           = [];
+var dropPins          = function(position, map, time) {
+  // Drop set of maps (array) on map obj.
+  window.setTimeout(function() {
+    markers.push(new google.maps.Marker({
+      position: position,
+      map: map,
+      animation: google.maps.Animation.DROP
+    }));
+  }, time);
+}
 
-module.exports = React.createClass({
+var Navbar = React.createClass({
 
   onClick: function() {
     var infoWindow = new google.maps.InfoWindow({map: map});
-    console.log('looking for you!');
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -19,10 +29,10 @@ module.exports = React.createClass({
           lng: position.coords.longitude
         };
 
-        infoWindow.setPosition(pos);
-        infoWindow.setContent('Location found.');
         map.setCenter(pos);
-        map.setZoom(15);
+        map.setZoom(16);
+        dropPins(pos, map, 0);
+
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
@@ -52,3 +62,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = Navbar;

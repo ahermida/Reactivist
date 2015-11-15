@@ -6,7 +6,7 @@
 //filters actions for one way data flow
 var AppDispatcher    = require('../dispatchers/AppDispatcher.js');
 //defined user actions
-var LoginConstants   = require('../constants/ReactivistConstants.js');
+var ReactivistConstants   = require('../constants/ReactivistConstants.js');
 //Superagent request
 var request          = require('superagent');
 
@@ -15,7 +15,7 @@ module.exports = {
   //generic dispatcher call
   doSomething: function(something) {
     AppDispatcher.handleSetterAction({
-      actionType: LoginConstants.DO_SOMETHING,
+      actionType: ReactivistConstants.DO_SOMETHING,
       something: something
     });
   },
@@ -28,16 +28,31 @@ module.exports = {
         if (err) {
           //handle fail
           AppDispatcher.handleViewAction({
-            actionType: LoginConstants.LOGIN_USER_FAIL,
+            actionType: ReactivistConstants.LOGIN_USER_FAIL,
             messages: res.body.description
           });
         }
         console.log(res.body);
         //handle success
         AppDispatcher.handleViewAction({
-          actionType: LoginConstants.LOGIN_USER_SUCCESS,
+          actionType: ReactivistConstants.LOGIN_USER_SUCCESS,
           token: res.body['access_token']
         });
     });
+  },
+
+  getTopics: function() {
+    request.get('http://localhost:8080/api/topics')
+      .end(function(err, res) {
+        if(err) {
+        // failure
+          console.log("getTopics request Failed");
+        }
+        console.log("getTopics request Success");
+        AppDispatcher.handleViewAction({
+          actionType: ReactivistConstants.GET_TOPICS,
+          topics: res.body
+        });
+      });
   }
 };
