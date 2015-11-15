@@ -34,7 +34,7 @@ function drawCircle(center, radius) {
 var Navbar = React.createClass({
 
   onClick: function() {
-    var infoWindow = new google.maps.InfoWindow({map: map});
+    
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -51,10 +51,7 @@ var Navbar = React.createClass({
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
+    } 
   },
 
   render: function() {
@@ -67,9 +64,6 @@ var Navbar = React.createClass({
             </Link>
           </div>
           <div className="navbar-form navbar-right" role="search">
-            <div className="form-group">
-              <input type="text" className="form-control" placeholder="Filter Topics"/>
-            </div>
             <button className="btn btn-default" onClick={this.onClick}>Locate Me!</button>
           </div>
         </div>

@@ -4,11 +4,11 @@
  */
 
 //filters actions for one way data flow
-var AppDispatcher    = require('../dispatchers/AppDispatcher.js');
+var AppDispatcher         = require('../dispatchers/AppDispatcher.js');
 //defined user actions
 var ReactivistConstants   = require('../constants/ReactivistConstants.js');
 //Superagent request
-var request          = require('superagent');
+var request               = require('superagent');
 
 module.exports = {
 
@@ -22,7 +22,7 @@ module.exports = {
 
   //api call
   loginUser: function(email, password) {
-    request.post('http://localhost:5000/auth')
+    request.post('http://localhost:8080/auth')
     .send({'username': email, 'password': password})
     .end(function(err, res) {
         if (err) {
@@ -40,6 +40,24 @@ module.exports = {
         });
     });
   },
+
+  createGroup: function(name, topic, position) {
+    request.post('http://localhost:8080/api/groups')
+    .send({'group': name, 'topic': topic, 'pos': position})
+    .end(function(err, res) {
+        if (err) {
+          //handle fail
+          return err;
+        }
+
+        console.log(res.body);
+        //handle success
+        AppDispatcher.handleViewAction({
+          actionType: ReactivistConstants.CREATE_GROUP,
+          response: res.body
+        });
+    });
+  },  
 
   getTopics: function() {
     request.get('http://localhost:8080/api/topics')

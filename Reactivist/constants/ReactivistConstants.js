@@ -8,5 +8,6 @@ module.exports = keyMirror({
     LOGIN_USER_FAIL: null,
     SIGNUP_USER: null,
     GET_TOPICS: null,
-    GET_POSTS: null
+    GET_POSTS: null,
+    POST_GROUP: null
 });
