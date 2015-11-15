@@ -9,6 +9,7 @@ var Navbar            = require('./Navbar.jsx');
 var Footer            = require('../Shared/Footer.jsx');
 var TopicImages       = require('./TopicImages.jsx');
 var Map               = require('./Map.jsx');
+var Controls          = require('./Controls.jsx');
 
 /**
  * Utility functions for Reactivist Application
@@ -53,8 +54,10 @@ module.exports = React.createClass({
         <div id="ReactivistMain">
           <Navbar />
           <div style={{'height': '45px'}}></div>
+          <h2 style={{'text-align': 'center'}}>Find your cause or Rally for support. Instantly</h2>
           <TopicImages topics={this.state.data.topics} />
           <Map />
+          <Controls />
         </div>
         <Footer />
       </div>

@@ -12,7 +12,7 @@ var Map = React.createClass({
       });
     }
       
-    return <div id="map" ></div>;
+    return <div id="map"></div>;
   }
 });
 

@@ -183,13 +183,28 @@ body {
  }
 
  #map {
-  width: 800px;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  margin: auto;
+  width: 750px;
+  height: 325px;
+  display: inline-block;
+  float: left;
+  margin-left: 50px;
  }
 
+#controls {
+  width: 350px;
+  height: 325px;
+  float: left;
+  display: inline-block;
+  margin-left: 70px;
+  background-color: snow;
+  border-radius: 2px;
+}
+
+.control-btn {
+  display: flex;
+  margin: auto;
+  width: 150px;
+}
 
 /**
  * Small Tablet screens --------------------------------------------------------
