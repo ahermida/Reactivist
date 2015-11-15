@@ -151,7 +151,7 @@ router.post('/groups', function(req, res) {
     console.log("Adding group: " + JSON.stringify(group));
     MongoClient.connect(url, function(err, db) {
         var collection = db.collection('groups');
-        collection.insert(post, function(err, result) {
+        collection.insert(group, function(err, result) {
             res.json({answer: result});
             db.close();
         });

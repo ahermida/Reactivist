@@ -42,6 +42,9 @@ var reactivistStore = assign({}, EventEmitter.prototype, {
 reactivistStore.dispatchToken = AppDispatcher.register(function(payload) {
   var action = payload.action;
   switch(action.actionType) {
+    case ReactivistConstants.CREATE_GROUP:
+      console.log(action, 'created group');
+      break;
 
     case ReactivistConstants.LOGIN_USER_SUCCESS:
       //_addToken(action.token);

@@ -10,9 +10,11 @@ var Route       = ReactRouter.Route;
 var Landing     = require('./components/Landing/Landing.jsx');
 var Topics      = require('./components/Topics/Topics.jsx');
 var Group       = require('./components/Group/Group.jsx');
+var GroupForm   = require('./components/Shared/GroupForm.jsx');
 //run router
 ReactDOM.render(<Router history={history()}>
                   <Route path="/" component={Landing}/>
                   <Route path="/topics" component={Topics}/>
                   <Route path="/groups/:group" component={Group}/>
+                  <Route path="/abc" component={GroupForm}/>
                 </Router>, document.getElementById('Reactivist'));

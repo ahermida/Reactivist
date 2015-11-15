@@ -9,7 +9,8 @@ var Navbar            = require('../Topics/Navbar.jsx');
 var Footer            = require('../Shared/Footer.jsx');
 var Upcoming          = require('./Upcoming.jsx');
 var Posts             = require('./Posts.jsx');
-var GMap               = require('./GMap.jsx');
+var GMap              = require('./GMap.jsx');
+var Writer            = require('./Writer.jsx');
 
 /**
  * Utility functions for Reactivist Application
@@ -53,6 +54,7 @@ module.exports = React.createClass({
         <div><GMap id="group-location-map" className="breakout" /></div>
         <Upcoming />
         <Posts posts={this.state.data.posts}/>
+        <Writer.jsx />
         <Footer />
       </div>
     );

@@ -210,6 +210,15 @@ body {
   width: 150px;
 }
 
+.control-input {
+  margin-left: 20px;
+  width: 200px;
+}
+
+.control-header {
+  display: inline;
+}
+
 /**
  * Small Tablet screens --------------------------------------------------------
  */
