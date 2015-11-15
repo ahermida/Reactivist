@@ -23,7 +23,6 @@ module.exports = React.createClass({
             <div className="form-group">
               <input type="text" className="form-control" placeholder="Filter Topics"/>
             </div>
-            <button className="btn btn-default">Submit</button>
           </div>
         </div>
       </nav>

@@ -256,11 +256,6 @@ module.exports = React.createClass({
             'div',
             { className: 'form-group' },
             React.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Filter Topics' })
-          ),
-          React.createElement(
-            'button',
-            { className: 'btn btn-default' },
-            'Submit'
           )
         )
       )
