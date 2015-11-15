@@ -23,6 +23,7 @@
          {
              this.renderItems() //renders the topic items passed in props
          }
+
        </div>
      );
    }
