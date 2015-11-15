@@ -36,8 +36,6 @@ function dropInitialPin(position, map, time) {
   }, time);
 }
 
-
-
 function drawCircle(center, radius) {
   var cityCircle = new google.maps.Circle({
     strokeColor: '#FF0000',
@@ -55,7 +53,6 @@ var Navbar = React.createClass({
 
   onClick: function() {
 
-
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = {
@@ -67,6 +64,17 @@ var Navbar = React.createClass({
         map.setZoom(14);
         dropInitialPin(pos, map, 0);
         drawCircle(pos, 700);
+
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    }
+  },
+
+  onClick2: function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        map.setZoom(14);        
 
         for (var i = 0; i < 10; i++) {
           var pos2 = {
@@ -93,6 +101,7 @@ var Navbar = React.createClass({
             </Link>
           </div>
           <div className="navbar-form navbar-right" role="search">
+            <button className="btn btn-default" onClick={this.onClick2}>Groups nearby</button>
             <button className="btn btn-default" onClick={this.onClick}>Locate Me!</button>
           </div>
         </div>
