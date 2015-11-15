@@ -10,12 +10,18 @@ var markers           = [];
 function dropPins(position, map, time) {
   // Drop set of maps (array) on map obj.
   window.setTimeout(function() {
-    markers.push(new google.maps.Marker({
+    var m = new google.maps.Marker({
       position: position,
       map: map,
       animation: google.maps.Animation.DROP,
       icon: 'img/BlueMarker.png'
-    }));
+    });
+    
+    markers.push(m);
+
+    m.addListener('click', function() {
+      console.log('hello');
+    });
   }, time);
 }
 
