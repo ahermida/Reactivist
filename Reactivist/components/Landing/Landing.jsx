@@ -42,7 +42,7 @@ module.exports = React.createClass({
     //Reactivist view
     return (
       <div id="main">
-        <div id="background"></div>
+        <img id="background" src="city.jpg" className="earlybird"></img>
         <div id="content">
           <h1 id="logo"><span id="ra-sign-in-r">re</span><span id="ra-sign-in-right">activist</span></h1>
           <div id="social-button-container">

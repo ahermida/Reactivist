@@ -3,7 +3,7 @@
  */
 html {
   height: 100%;
-  background-color: snow;
+  background-color: whitesmoke;
 }
 
 body {
@@ -11,9 +11,11 @@ body {
   margin: 0;
   min-height: 100%;
   display: flex;
+  background-color: whitesmoke;
   flex-flow: column;
   min-height: 100%;
 }
+
 #background {
   position: fixed;
   left: 0;
@@ -24,15 +26,10 @@ body {
   background-size:cover;
   height: 100%;
   width: 100%;
-  -webkit-filter: blur(2.5px);
-  -moz-filter: blur(2.5px);
-  -o-filter: blur(2.5px);
-  -ms-filter: blur(2.5px);
-  filter: blur(2.5px);
 }
 
 #ReactivistNavbar {
-  background-color: #d3d3d3;
+  background: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,.5));
   border-radius: 0 !important;
   width: 100%;
   position: fixed;
@@ -48,12 +45,14 @@ body {
   font-weight: 100;
   font-size: 3em;
 }
+
 #content {
   height: 100%;
   width: 100%;
   overflow: auto;
   position: relative;
 }
+
 #Reactivist {
   width: 100%;
   height: 100%;
@@ -62,14 +61,17 @@ body {
   align-items: center;
   flex-flow: column;
 }
+
 #ReactivistTopics {
   height: 100%;
   width: 100%;
 }
+
 #ReactivistMain {
   min-height: 100%;
   width: 100%;
 }
+
 #TopicImages {
   background: white;
   border: 1px solid #ececec;
@@ -79,9 +81,11 @@ body {
   display: flex;
   flex-flow: row wrap;
 }
+
 .TopicItem-description {
   margin: auto;
 }
+
 .TopicImage {
   font-family: 'Roboto', sans-serif;
   text-align: center;
@@ -103,22 +107,26 @@ body {
   border-top: 1px solid #ececec;
   margin-top: 20px;
   min-height: 40px;
-  background-color: #e2e2e2;
+  border-top-width: 0px;
+  background: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,255,.5));
   color: white;
   flex: 1 100%;
   order: 4;
 }
+
 #Footer > a {
   padding: 5px;
   text-decoration: none;
-  color: grey;
+  color: white;
 }
+
 #logo {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   font-size: 10em;
   text-align: center;
 }
+
 #social-button-container {
   margin: auto;
   flex-direction: column;
@@ -128,8 +136,9 @@ body {
   min-width: 250px;
   margin-top: 50px;
 }
+
 #ra-sign-in {
-  font-weight: 100;
+  font-weight: 200;
   font-size: 2em;
   font-family: 'Roboto', sans-serif;
 }
@@ -137,10 +146,13 @@ body {
 #ra-sign-in-r {
   color: white;
 }
+
 #ra-sign-in-right {
   /*#7f0000*/
+  font-weight: 500;
   color: #660000;
 }
+
 #ra-sign-in-a {
   /*#7f0000*/
   color: #cc0000;
@@ -152,16 +164,17 @@ body {
   /**
    * Login Styles
    */
+   
    #Login-RightAside {
      margin: 0 auto;
      flex: 1 100%;
    }
+   
    #Login-LeftAside {
      margin: 0 auto;
      order: 2;
      flex: 1 100%;
    }
-
 
    .Login-Signup-Section {
      min-width: 300px;
