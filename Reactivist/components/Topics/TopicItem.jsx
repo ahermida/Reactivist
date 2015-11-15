@@ -31,7 +31,7 @@ module.exports = React.createClass({
 
   render: function() {
     return (
-      <div id="TopicItem">{ this.renderItems() }</div>
+      <div className="TopicItem">{ this.renderItems() }</div>
     );
   }
 });

@@ -270,7 +270,7 @@ body {
    }
 }
 
-#TopicItem {
+.TopicItem {
   background: white;
   border: 1px solid #ececec;
   border-radius: 5px;
