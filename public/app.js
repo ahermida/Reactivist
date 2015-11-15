@@ -216,6 +216,10 @@ var React = require('react');
 var Map = React.createClass({
 	displayName: 'Map',
 
+	componentDidMount: function () {
+		initMap();
+	},
+
 	render: function () {
 		window.initMap = function () {
 			map = new google.maps.Map(document.getElementById('map'), {
@@ -238,10 +242,33 @@ var React = require('react');
 var Router = require('react-router');
 var ReactivistActions = require('../../actions/ReactivistActions.js');
 var Link = Router.Link;
+
 module.exports = React.createClass({
   displayName: 'exports',
 
-  onClick: function () {},
+  onClick: function () {
+    var infoWindow = new google.maps.InfoWindow({ map: map });
+    console.log('looking for you!');
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        infoWindow.setPosition(pos);
+        infoWindow.setContent('Location found.');
+        map.setCenter(pos);
+        map.setZoom(15);
+      }, function () {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+  },
 
   render: function () {
     return React.createElement(
@@ -278,8 +305,8 @@ module.exports = React.createClass({
           ),
           React.createElement(
             'button',
-            { className: 'btn btn-default' },
-            'Submit'
+            { className: 'btn btn-default', onClick: this.onClick },
+            'Locate Me!'
           )
         )
       )

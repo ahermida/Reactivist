@@ -1,5 +1,9 @@
 var React = require('react');
 var Map = React.createClass({
+	componentDidMount: function() {
+		initMap();
+	},
+
 	render: function() {
   		window.initMap = function() {
 			map = new google.maps.Map(document.getElementById('map'), {
