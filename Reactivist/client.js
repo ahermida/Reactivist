@@ -14,5 +14,5 @@ var Group       = require('./components/Group/Group.jsx');
 ReactDOM.render(<Router history={history()}>
                   <Route path="/" component={Landing}/>
                   <Route path="/topics" component={Topics}/>
-                  <Route path="/groups" component={Group}/>
+                  <Route path="/groups/:group" component={Group}/>
                 </Router>, document.getElementById('Reactivist'));

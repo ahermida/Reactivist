@@ -57,17 +57,31 @@ module.exports = {
   },
 
   getPosts: function(group) {
-    //request.get('http://localhost:8080/api/posts/' + group)
-    //  .end(function(err, res) {
-      //  if(err) {
+    request.get('http://localhost:8080/api/posts/' + group)
+      .end(function(err, res) {
+        if(err) {
         // failure
-        //  console.log("getTopics request Failed");
-        //}
-      //  console.log("getTopics request Success");
+          console.log("getTopics request Failed");
+        }
+        console.log("getTopics request Success");
         AppDispatcher.handleViewAction({
           actionType: ReactivistConstants.GET_POSTS,
-          posts: []
+          posts: res.body.answer
         });
-      //});
+      });
+  },
+  postMessage: function(group) {
+    request.get('http://localhost:8080/api/posts/' + group)
+      .end(function(err, res) {
+        if(err) {
+        // failure
+          console.log("getTopics request Failed");
+        }
+        console.log("getTopics request Success");
+        AppDispatcher.handleViewAction({
+          actionType: ReactivistConstants.POST_MESSAGE,
+          posts: res.body.answer
+        });
+      });
   }
 };
