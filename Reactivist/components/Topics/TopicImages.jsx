@@ -8,9 +8,11 @@
 
    renderItems: function() {
      //topics passed from the store and turned into TopicItems
+       console.log(JSON.stringify(this.props.topics));
      return this.props.topics.map(function(topic, i) {
+         console.log('img/' + topic.image);
        return (
-         <TopicItem imgPath={topic.img}
+         <TopicItem imgPath={'img/' + topic.image}
                description={topic.description}
                key={i}
                />

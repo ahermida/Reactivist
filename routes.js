@@ -9,7 +9,9 @@ var multer      = require('multer');
 var express     = require('express');
 var bodyParser  = require('body-parser');
 var router      = express.Router();
-var url         = process.env.MDBKEY;
+var url         = require('./config').mongouid;
+
+console.log("MongoURI = " + url);
 
 
 var storage = multer.diskStorage({

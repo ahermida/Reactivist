@@ -15,8 +15,9 @@ var Map               = require('./Map.jsx');
  */
 function getState() {
     console.log("Getting state");
+    var temp = ReactivistStore.getData();
   return {
-    data: ReactivistStore.getData()
+    data: temp
   };
 }
 
@@ -29,14 +30,14 @@ module.exports = React.createClass({
 
   //Implements utility function to get the View Data from store
   getInitialState: function() {
+      console.log("Getting initial state");
     return getState();
   },
 
   //Fires post-mount,
   componentDidMount: function() {
-    //this.state.topics = ReactivistActions.getTopics();
-    console.log("GetState " + JSON.stringify(this.state));
-    ReactivistStore.addChangeListener(this._onChange);
+      this.state.data.topics = ReactivistActions.getTopics();
+      ReactivistStore.addChangeListener(this._onChange);
   },
 
   // Remove change listers from stores
