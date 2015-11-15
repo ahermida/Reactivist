@@ -45,10 +45,7 @@ module.exports = React.createClass({
             <div className="form-group">
               <input type="text" className="form-control" placeholder="Filter Topics"/>
             </div>
-<<<<<<< HEAD
             <button className="btn btn-default" onClick={this.onClick}>Locate Me!</button>
-=======
->>>>>>> 96bd5d42662f1349377a5047e3f896a4007eabc1
           </div>
         </div>
       </nav>
