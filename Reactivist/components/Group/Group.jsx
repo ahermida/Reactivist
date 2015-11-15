@@ -9,7 +9,7 @@ var Navbar            = require('../Topics/Navbar.jsx');
 var Footer            = require('../Shared/Footer.jsx');
 var Upcoming          = require('./Upcoming.jsx');
 var Posts             = require('./Posts.jsx');
-var Map               = require('../Topics/Map.jsx');
+var GMap               = require('./GMap.jsx');
 
 /**
  * Utility functions for Reactivist Application
@@ -46,12 +46,14 @@ module.exports = React.createClass({
   render: function() {
     //Reactivist view
     return (
-      <div>
+      <div id="ReactivistTopics">
         <Navbar />
+        <div style={{'height': '60px'}}></div>
         <div id="gradient-block"></div>
-        <Map id="group-location-map" />
+        <div><GMap id="group-location-map" className="breakout" /></div>
         <Upcoming />
         <Posts posts={this.state.data.posts}/>
+        <Footer />
       </div>
     );
   },

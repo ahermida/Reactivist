@@ -72,6 +72,10 @@ body {
   width: 100%;
 }
 
+.breakout {
+  float: none;
+}
+
 #TopicImages {
   background: white;
   border: 1px solid #ececec;
