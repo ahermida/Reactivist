@@ -6,7 +6,8 @@ var Router            = require('react-router');
 var ReactivistActions = require('../../actions/ReactivistActions.js');
 var Link              = Router.Link;
 var markers           = [];
-var dropPins          = function(position, map, time) {
+
+function dropPins(position, map, time) {
   // Drop set of maps (array) on map obj.
   window.setTimeout(function() {
     markers.push(new google.maps.Marker({
@@ -15,6 +16,19 @@ var dropPins          = function(position, map, time) {
       animation: google.maps.Animation.DROP
     }));
   }, time);
+}
+
+function drawCircle(center, radius) {
+  var cityCircle = new google.maps.Circle({
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.3,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+    map: map,
+    center: center,
+    radius: radius
+  });
 }
 
 var Navbar = React.createClass({
@@ -32,6 +46,7 @@ var Navbar = React.createClass({
         map.setCenter(pos);
         map.setZoom(16);
         dropPins(pos, map, 0);
+        drawCircle(pos, 300);
 
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());

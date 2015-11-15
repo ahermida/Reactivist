@@ -52,6 +52,8 @@ module.exports = React.createClass({
       <div id="ReactivistTopics">
         <div id="ReactivistMain">
           <Navbar />
+          <div style={{'height': '45px'}}></div>
+          
           <TopicImages topics={this.state.data.topics} />
           <Map />
         </div>
