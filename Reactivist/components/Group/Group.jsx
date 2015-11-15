@@ -34,6 +34,7 @@ module.exports = React.createClass({
 
   //Fires post-mount,
   componentDidMount: function() {
+      ReactivistActions.getPosts(this.getParams().group);
       ReactivistStore.addChangeListener(this._onChange);
   },
 
@@ -45,12 +46,14 @@ module.exports = React.createClass({
   render: function() {
     //Reactivist view
     return (
-    <div>
-      <Navbar />
-      <div id="gradient-block"></div>
-      <Map id="group-location-map" />
-      <Posts />
-    </div>);
+      <div>
+        <Navbar />
+        <div id="gradient-block"></div>
+        <Map id="group-location-map" />
+        <Upcoming />
+        <Posts posts={this.state.data.posts}/>
+      </div>
+    );
   },
 
   //sets page to rerender on every change

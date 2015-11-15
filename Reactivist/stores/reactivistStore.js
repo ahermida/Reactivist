@@ -6,7 +6,9 @@ var ReactivistConstants = require('../constants/ReactivistConstants.js');
 var EventEmitter      = require('events').EventEmitter;
 var assign            = require('object-assign');
 var CHANGE_EVENT      = 'change';
-var _data             = { topics: []};
+var _data             = {};
+    _data.topics      = [];
+    _data.posts       = [];
 /**
  * Utility functions for store -- for mutating store data
  */
@@ -30,7 +32,6 @@ var reactivistStore = assign({}, EventEmitter.prototype, {
   },
 
   getData: function() {
-      console.log(_data);
     return _data;
   }
 });
@@ -52,19 +53,17 @@ reactivistStore.dispatchToken = AppDispatcher.register(function(payload) {
       break;
 
   case ReactivistConstants.GET_TOPICS:
-      console.log(action.topics);
-      _data.topics = action.topics;
-      console.log(_data);
+      _data.topics = action.topics; //might as well switch them out, it's easy
+      break;
+  case ReactivistConstants.GET_POSTS:
+      _data.posts = action.posts; //might as well switch them out, it's easy
       break;
 
       reactivistStore.emitChange();
     default:
       return true;
   }
-
-    console.log("Emitting Change");
   reactivistStore.emitChange();
-
 });
 
 module.exports = reactivistStore;
