@@ -38,6 +38,10 @@ module.exports = React.createClass({
     ReactivistStore.removeChangeListener(this._onChange);
   },
 
+  resultFacebookLogin: function( response ) {
+    console.log( response );
+  },
+
   render: function() {
     //Reactivist view
     return (
