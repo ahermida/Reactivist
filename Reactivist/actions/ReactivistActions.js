@@ -57,7 +57,7 @@ module.exports = {
           response: res.body
         });
     });
-  },  
+  },
 
   getTopics: function() {
     request.get('http://localhost:8080/api/topics')
@@ -88,8 +88,8 @@ module.exports = {
         });
       });
   },
-  postMessage: function(group) {
-    request.get('http://localhost:8080/api/posts/' + group)
+  postMessage: function(post) {
+    request.post('http://localhost:8080/api/posts/').send(post)
       .end(function(err, res) {
         if(err) {
         // failure

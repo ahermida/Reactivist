@@ -35,7 +35,7 @@ module.exports = React.createClass({
 
   //Fires post-mount,
   componentDidMount: function() {
-      ReactivistActions.getPosts(this.getParams().group);
+      //ReactivistActions.getPosts(this.getParams().group);
       ReactivistStore.addChangeListener(this._onChange);
   },
 
@@ -52,9 +52,9 @@ module.exports = React.createClass({
         <div style={{'height': '60px'}}></div>
         <div id="gradient-block"></div>
         <div><GMap id="group-location-map" className="breakout" /></div>
+        <Writer />
         <Upcoming />
         <Posts posts={this.state.data.posts}/>
-        <Writer.jsx />
         <Footer />
       </div>
     );

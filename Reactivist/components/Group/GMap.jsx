@@ -6,12 +6,16 @@ var GMap = React.createClass({
 
   render: function() {
     window.initMap = function() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 8
-      });
+      try {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      } catch (e) {
+        console.log(e);
+      }
     }
-      
+
     return <div id="map" style={{'float':'none !important'}}></div>;
   }
 });

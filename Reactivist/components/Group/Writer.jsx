@@ -9,7 +9,7 @@ module.exports = React.createClass({
   getInitialState: function() {
     return {
       message: ''
-    }
+    };
   },
 
   updateForm: function(value) {
@@ -19,51 +19,44 @@ module.exports = React.createClass({
     if (this.state.message && (this.state.message.trim() !== '')) {
       var date = new Date().getTime();
       var rv = {
-        username: this.props.username,
-        userID: this.props.userID,
-        body: this.state.message,
+        text: event.target.value,
         timestamp: date
       };
-      ReactivistActions.sendMessage(rv);
+      ReactivistActions.postMessage(rv);
+      event.target.value = '';
       this.setState({ message: '' });
     }
   },
   onKeyUp: function(event) {
-    event.preventDefault();
-    if (event.keyCode === 13 && event.target.value &&
-        React.findDOMNode(this.refs.writer_button).offsetParent === null) {
+    if (event.keyCode === 13 && event.target.value) {
       var date = new Date().getTime();
       var rv = {
         text: event.target.value,
         timestamp: date
       };
-      ChatActions.sendMessage(rv);
+      ReactivistActions.postMessage(rv);
+      event.target.value = '';
       this.setState({ message: '' });
     }
   },
-
-  renderInput: function() {
-    var valueLink = {
-      value: this.state.message,
-      requestChange: this.updateForm()
-    };
-    return (
-      <input type="text"
-              className="writer_input"
-              name="message"
-              placeholder="Write a post..."
-              id="writer_input"
-              valueLink={valueLink}
-              onFocus={this.onFocus}
-              onKeyUp={this.onKeyUp}
-              />
-      );
+  logCon: function() {
+    console.log('WORKED');
   },
 
   render: function() {
+    var valueLink = {
+      value: this.state.message,
+      requestChange: this.updateForm
+    };
     return (
       <div id="writer">
-        <input onKeyUp={this.onKeyUp} />
+        <input onKeyUp={this.onKeyUp}
+               type="text"
+               valueLink={valueLink}
+               className="writer_input"
+               name="message"
+               placeholder="Write a post..."
+               id="writer_input"/>
         <button
           type="submit"
           className="writer_button"
