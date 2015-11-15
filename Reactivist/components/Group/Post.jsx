@@ -12,7 +12,7 @@ module.exports = React.createClass({
     //Reactivist view
     return (
     <div className="SinglePost">
-      {this.props.imgPath ? (<img src={this.props.imgPath}/><span>{this.props.text}</span>) :
+      {this.props.imgPath ? (<div><img src={this.props.imgPath}/><span>{this.props.text}</span></div>) :
                             (<span>{this.props.text}</span>)}
     </div>);
   }

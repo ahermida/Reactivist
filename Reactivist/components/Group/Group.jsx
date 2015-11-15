@@ -16,7 +16,7 @@ var Map               = require('../Topics/Map.jsx');
  */
 function getState() {
   return {
-    data: ReactivistStore.getData();
+    data: ReactivistStore.getData()
   };
 }
 
