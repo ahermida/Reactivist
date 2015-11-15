@@ -9,9 +9,10 @@ var Router      = ReactRouter.Router;
 var Route       = ReactRouter.Route;
 var Landing     = require('./components/Landing/Landing.jsx');
 var Topics      = require('./components/Topics/Topics.jsx');
-
+var Group     = require('./components/Group/Group.jsx');
 //run router
 ReactDOM.render(<Router history={history()}>
                   <Route path="/" component={Landing}/>
                   <Route path="/topics" component={Topics}/>
+                  <Route path="/:group" component={Group}/>
                 </Router>, document.getElementById('Reactivist'));
