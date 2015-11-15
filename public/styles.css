@@ -27,7 +27,23 @@ body {
   height: 100%;
   width: 100%;
 }
-
+#Posts {
+  border-radius: 5px;
+  font-family: helvetica, sans-serif;
+  width: 600px;
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  align-self: center;
+  background-color: white;
+  justify-content: center;
+}
+.SinglePost {
+  padding: 5px;
+}
+.timestamp {
+  font-size: .85em;
+}
 #ReactivistNavbar {
   /*background: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,.5));*/
   border-radius: 0 !important;
@@ -45,7 +61,15 @@ body {
   font-weight: 100;
   font-size: 3em;
 }
-
+#groupname {
+  text-align: center;
+}
+#inputgrp {
+  display: flex;
+  margin: auto;
+  max-width: 552px;
+  margin-right: 203px;
+}
 #content {
   height: 100%;
   width: 100%;
@@ -61,7 +85,13 @@ body {
   align-items: center;
   flex-flow: column;
 }
-
+#main {
+  min-height: 100%;
+}
+#mcmappy {
+  max-width: 400px;
+  padding: 20px;
+}
 #ReactivistTopics {
   height: 100%;
   width: 100%;
@@ -168,12 +198,12 @@ body {
   /**
    * Login Styles
    */
-   
+
    #Login-RightAside {
      margin: 0 auto;
      flex: 1 100%;
    }
-   
+
    #Login-LeftAside {
      margin: 0 auto;
      order: 2;
@@ -248,4 +278,3 @@ body {
   display: flex;
   flex-flow: row wrap;
  }
-

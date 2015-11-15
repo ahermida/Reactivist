@@ -35,7 +35,7 @@ module.exports = React.createClass({
 
   //Fires post-mount,
   componentDidMount: function() {
-      //ReactivistActions.getPosts(this.getParams().group);
+      ReactivistActions.getPosts(this.props.params.group);
       ReactivistStore.addChangeListener(this._onChange);
   },
 
@@ -48,13 +48,16 @@ module.exports = React.createClass({
     //Reactivist view
     return (
       <div id="ReactivistTopics">
+        <div id="main">
         <Navbar />
         <div style={{'height': '60px'}}></div>
         <div id="gradient-block"></div>
-        <div><GMap id="group-location-map" className="breakout" /></div>
-        <Writer />
+        <h1 id="groupname">{this.props.params.group}</h1>
+        <div id="mcmappy"><GMap id="group-location-map" className="breakout" /></div>
         <Upcoming />
         <Posts posts={this.state.data.posts}/>
+        <Writer />
+        </div>
         <Footer />
       </div>
     );

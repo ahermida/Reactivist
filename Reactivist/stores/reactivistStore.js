@@ -55,12 +55,15 @@ reactivistStore.dispatchToken = AppDispatcher.register(function(payload) {
       console.log(action.message);
       break;
 
-  case ReactivistConstants.GET_TOPICS:
-      _data.topics = action.topics; //might as well switch them out, it's easy
-      break;
-  case ReactivistConstants.GET_POSTS:
-      _data.posts = action.posts; //might as well switch them out, it's easy
-      break;
+    case ReactivistConstants.GET_TOPICS:
+        _data.topics = action.topics; //might as well switch them out, it's easy
+        break;
+    case ReactivistConstants.GET_POSTS:
+        _data.posts = action.posts; //might as well switch them out, it's easy
+        break;
+    case ReactivistConstants.POST_MESSAGE:
+        _data.posts.push(action.post); //might as well switch them out, it's easy
+        break;
 
       reactivistStore.emitChange();
     default:
