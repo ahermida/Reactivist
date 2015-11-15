@@ -5,7 +5,9 @@ var React             = require('react');
 var Router            = require('react-router');
 var ReactivistActions = require('../../actions/ReactivistActions.js');
 var Link              = Router.Link;
+var request           = require('superagent');
 var markers           = [];
+var groups            = [];
 
 function dropPins(position, map, time) {
   // Drop set of maps (array) on map obj.
@@ -20,7 +22,17 @@ function dropPins(position, map, time) {
     markers.push(m);
 
     m.addListener('click', function() {
-      console.log('hello');
+      request.get('http://localhost:8080/api/groups')
+      .end(function(err, res) {
+        if(err) {
+        // failure
+          console.log("getTopics request Failed");
+        }
+        console.log("getTopics request Success", res.body.answer[24]);
+        groups.push(res.body.answer[24]);
+        
+      });
+
     });
   }, time);
 }
